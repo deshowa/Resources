@@ -1,0 +1,280 @@
+*/ this is a summary of all of the code covered up to unit 1;
+
+data height;
+input height sport $;
+datalines;
+6.079999924	Basketball
+6.579999924	Basketball
+6.25	Basketball
+6.579999924	Basketball
+6.25	Basketball
+5.920000076	Basketball
+7	Basketball
+6.409999847	Basketball
+6.75	Basketball
+6.25	Basketball
+6	Basketball
+6.920000076	Basketball
+6.829999924	Basketball
+6.579999924	Basketball
+6.409999847	Basketball
+6.670000076	Basketball
+6.670000076	Basketball
+5.75	Basketball
+6.25	Basketball
+6.25	Basketball
+6.5	Basketball
+6	Basketball
+6.920000076	Basketball
+6.25	Basketball
+6.420000076	Basketball
+6.579999924	Basketball
+6.579999924	Basketball
+6.079999924	Basketball
+6.75	Basketball
+6.5	Basketball
+6.829999924	Basketball
+6.079999924	Basketball
+6.920000076	Basketball
+6	Basketball
+6.329999924	Basketball
+6.5	Basketball
+6.579999924	Basketball
+6.829999924	Basketball
+6.5	Basketball
+6.579999924	Basketball
+6.329999924	Football
+6.5	Football
+6.5	Football
+6.25	Football
+6.5	Football
+6.329999924	Football
+6.25	Football
+6.170000076	Football
+6.420000076	Football
+6.329999924	Football
+6.420000076	Football
+6.579999924	Football
+6.079999924	Football
+6.579999924	Football
+6.5	Football
+6.420000076	Football
+6.25	Football
+6.670000076	Football
+5.909999847	Football
+6	Football
+5.829999924	Football
+6	Football
+5.829999924	Football
+5.079999924	Football
+6.75	Football
+5.829999924	Football
+6.170000076	Football
+5.75	Football
+6	Football
+5.75	Football
+6.5	Football
+5.829999924	Football
+5.909999847	Football
+5.670000076	Football
+6	Football
+6.079999924	Football
+6.170000076	Football
+6.579999924	Football
+6.5	Football
+6.25	Football
+6.329999924	Football
+5.25	Football
+6.670000076	Football
+6.5	Football
+5.829999924	Football
+; 
+* you can hit F8 to run code;
+
+* we can now print our data to make sure that it was entered into SAS;
+proc print data = height;
+run;
+
+* to create a histogram;
+proc univariate data = height;
+histogram height;
+run;
+* will give you all of the information about that dataset in this output;
+proc univariate date = height;
+run;
+* to get multiple outputs;
+proc univariate data = height;
+by sport$;
+histogram height;
+run;
+
+* to create boxplot;
+proc boxplot data = height;
+plot height*sport;
+run;
+
+* running a t-test, this is for a 2 tailed test since sides is default value of 2, for upper tail = U and lower tail = l, remember alpha is 1-CI;
+proc ttest data = height alpha= .01 sides=2;
+var height;
+run;
+
+* 2 sample t test, remember to look at pooled diff 1-2 , this is for confidence intervals;
+proc ttest data = height alpha=.1 sides = 2 order = data;
+class sport;
+var  height;
+run;
+
+* one sample ttest , just illustrative for baskedball;
+* for this need to create another dataset;
+data height2;
+set height;
+IF sport= 'Basketba'  Then DELETE;
+run;
+
+proc print data = height2;
+run;
+
+proc ttest data = height2 sides = u ho=6;
+var height;
+run;
+
+* 2 tailed one sample t-test, notice it defaults to a .05 alpha or 95% lev of conf;
+proc ttest data = height2 sides = 2 ho = 6;
+var height;
+run;
+
+* 2 sample 2 tailed t test, if do not specify the HO does it assume in 2 sample that you are saying difference is equivalent...guess it has to;
+proc ttest data = height sides = 2 alpha = .1;
+class sport;
+var height;
+run;
+
+* this is the information from quiz 1 that we used to create the boxplots and view the data;
+
+title 'quiz 1: question 6: creativity boxplot';
+proc boxplot data = creativity;
+plot score*treatment;
+run;
+
+proc means data = creativity mean min q1 median q3 max ;
+by treatment;
+run;
+
+proc surveyselect data 
+
+proc sort Have to do the sort first a # remove the seed command
+
+## two ways to import data
+data concentration;
+infile "\\Client\C$\SMU Data science\Statistics 1\homework\unit 1\20160510_stats 1_homework 1_zinc  data.csv" firstobs=2 dlm=',';
+input group$ concentration;
+run;
+title 'CreativityData';
+proc print data=creativity; run;
+PROC IMPORT OUT= WORK.CONCENTRATION 
+            DATAFILE= "\\Client\C$\SMU Data science\Statistics 1\homework\unit 1\20160510_stats 1_homework 1_zinc  data.csv" 
+            DBMS=CSV REPLACE;
+     GETNAMES=YES;
+     DATAROW=2; 
+RUN;
+
+## example from class where we show standard t-test and paired t-test
+data brakes;
+input times light $ order = data;
+datalines;
+1.00 standard
+0.33 standard
+1.25 standard
+0.56 standard
+0.90 standard
+1.30 standard
+0.92 new
+0.27 new
+1.10 new
+0.49 new
+0.74 new
+1.18 new
+;
+run;
+
+proc ttest sides = u;
+var times;
+class light;
+run;
+
+data brakes;
+input standard new;
+datalines;
+1.00 0.92
+0.33 0.27
+1.25 1.10
+0.56 0.49
+0.90 0.74
+1.30 1datalines.18
+;
+run;
+
+proc ttest;
+paired standard*new;
+run;
+
+
+
+######### in unit 2, we covered the power calcs, here is the code for determining the number of observations for a test########
+proc power;
+onesamplemeans
+nullmean = 0 
+mean = 5
+stddev = 25
+power = .8
+ntotal = .;
+run;
+* tells us we need 199 observations to get that power
+*the mean value is the value that you think is possible
+* for the above, SAS assumes the probability of type 1 error, but you can specify
+* let's add alpha;
+proc power;
+onesamplemeans
+alpha = .01
+mean = 5
+stddev = 25
+power = .8
+ntotal = .;
+run;
+* need to find out what null mean defaulted to, but now we need alot more obs: 296
+
+* if we change the alpha to .05, n = 199;
+proc power;
+onesamplemeans
+alpha = .05
+mean = 5
+stddev = 25
+power = .8
+ntotal = .;
+run;
+
+* challenge question : how would we do the test for one tailed?;
+* we would add the sides argument : sides: 1 = 1 side, 2 = 2 side, u = upper, l = lower
+
+* calcing power for 2 sample t tests;
+proc power;
+twosamplemeans
+alpha = .01
+sides = 1
+groupmeans = 10|14
+stddev = 20
+power = .8
+ntotal = .;
+run;
+
+* what about using sattersthwaite approximation for df;
+proc power; 
+twosamplemeans test = diff_satt
+meandiff = 3 6
+groupstddevs = 7|7 9 12
+power = .9
+ntotal = .;
+plot x = effect min = 3 max = 6;
+run;
+* gives curve for each possible combination of the stddevs
+

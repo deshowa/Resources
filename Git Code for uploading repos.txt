@@ -1,0 +1,367 @@
+### Trial and error with Git
+
+
+http://gbayer.com/development/moving-files-from-one-git-repository-to-another-preserving-history/ - moving files among repos
+
+https://help.github.com/articles/adding-a-file-to-a-repository-from-the-command-line/ - adding a file to the command line
+
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/ - adding an existing repository using hte command line
+
+### if you ever screw up and add the wrong origin for a repo
+$ git remote rm origin ## this removes the URL and allows you to update 
+
+## to add re remote origin (for already existing) 
+
+$ git remote add origin https://github.com/deshowa/Data-Science-MS-resources.git
+
+## to check
+
+$ git remote -v
+
+
+Alex@DESKTOP-7KDF9D5 MINGW64 ~
+$ cd /c/SMU\ Data\ science/Doing\ data\ science\ course/Units/Unit\ 3
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ pwd
+/c/SMU Data science/Doing data science course/Units/Unit 3
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ cd ~testrepo
+bash: cd: ~testrepo: No such file or directory
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ cd /testrepo
+bash: cd: /testrepo: No such file or directory
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ cd testrepo/
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git clone https://github.com/deshowa/stat6306introdatascience.git
+Cloning into 'stat6306introdatascience'...
+remote: Counting objects: 6, done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 6 (delta 0), reused 6 (delta 0), pack-reused 0
+Unpacking objects: 100% (6/6), done.
+Checking connectivity... done.
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ ls
+README.md  stat6306introdatascience/
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git push origin master
+Logon failed, use ctrl+c to cancel basic credential prompt.
+Username for 'https://github.com/': deshowa
+remote: Invalid username or password.
+fatal: Authentication failed for 'https://github.com/deshowa/testrepo.git/'
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git push origin master
+Everything up-to-date
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add stat6306introdatascience data_science_profile
+fatal: pathspec 'data_science_profile' did not match any files
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add stat6306introdatascience data_science_profile
+fatal: pathspec 'data_science_profile' did not match any files
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add stat6306introdatascience data_science_profile.txt
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -m
+error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit hook
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -a
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git push origin master
+Everything up-to-date
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ ^C
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$  git config --global user.email "alex.deshowitz@gmail.com" Omit --global
+usage: git config [<options>]
+
+Config file location
+    --global              use global config file
+    --system              use system config file
+    --local               use repository config file
+    -f, --file <file>     use given config file
+    --blob <blob-id>      read config from given blob object
+
+Action
+    --get                 get value: name [value-regex]
+    --get-all             get all values: key [value-regex]
+    --get-regexp          get values for regexp: name-regex [value-regex]
+    --get-urlmatch        get value specific for the URL: section[.var] URL
+    --replace-all         replace all matching variables: name value [value_regex]
+    --add                 add a new variable: name value
+    --unset               remove a variable: name [value-regex]
+    --unset-all           remove all matches: name [value-regex]
+    --rename-section      rename section: old-name new-name
+    --remove-section      remove a section: name
+    -l, --list            list all
+    -e, --edit            open an editor
+    --get-color           find the color configured: slot [default]
+    --get-colorbool       find the color setting: slot [stdout-is-tty]
+
+Type
+    --bool                value is "true" or "false"
+    --int                 value is decimal number
+    --bool-or-int         value is --bool or --int
+    --path                value is a path (file or directory name)
+
+Other
+    -z, --null            terminate values with NUL byte
+    --name-only           show variable names only
+    --includes            respect include directives on lookup
+    --show-origin         show origin of config (file, standard input, blob, command line)
+
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git push origin master
+Everything up-to-date
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -a
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ cd
+
+Alex@DESKTOP-7KDF9D5 MINGW64 ~
+$ cd /c/SMU\ Data\ science/Doing\ data\ science\ course/Units/Unit\ 3
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ pwd
+/c/SMU Data science/Doing data science course/Units/Unit 3
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ fit add .
+bash: fit: command not found
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ git add .
+fatal: Not a git repository (or any of the parent directories): .git
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3
+$ cd testrepo/
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add .
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git ass testrepo
+gitgit: 'ass' is not a git command. See 'git --help'.
+
+Did you mean one of these?
+        add
+        stash
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add testrepo
+fatal: pathspec 'testrepo' did not match any files
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add \testrepo
+fatal: pathspec 'testrepo' did not match any files
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add README.md
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add data_science_profile.txt
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add stat6306introdatascience/
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git add README.md
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -m
+error: switch `m' requires a value
+usage: git commit [<options>] [--] <pathspec>...
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup <commit>      use autosquash formatted message to fixup specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    -s, --signoff         add Signed-off-by:
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <default>   how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit hook
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -m "update_1"
+
+*** Please tell me who you are.
+
+Run
+
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
+
+fatal: empty ident name (for <(null)>) not allowed
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git config omit --global "alex.deshowitz@gmail.com"
+error: key does not contain a section: omit
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git config Omit --global "alex.deshowitz@gmail.com"
+error: key does not contain a section: Omit
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git config --global user.email "alex.deshowitz@gmail.com"
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git config --global user.name "Alex Deshowitz"
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git commit -m "update_1"
+[master 38aad4b] update_1
+ 2 files changed, 9 insertions(+)
+ create mode 100644 data_science_profile.txt
+ create mode 160000 stat6306introdatascience
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+$ git push origin master
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 444 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/deshowa/testrepo.git
+   f992639..38aad4b  master -> master
+
+Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)

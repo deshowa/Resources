@@ -1,0 +1,22 @@
+### This is a list of the R resources listed so far###
+
+https://gist.github.com/jeromyanglim/2716336  - Using R Markdown
+
+https://dl.dropboxusercontent.com/u/12616850/R_Intro_for_Excel.pdf - coming to R with excel background
+
+https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf - R markdown cheatsheet
+
+
+http://www.stat.columbia.edu/~martin/W2024/R2.pdf - using r for t-tests
+
+http://www.statmethods.net/ - link to Quick R
+
+https://cran.r-project.org/other-docs.html - CRAN intro to R
+
+## site used in unit 2 class exercise for RMarkdown references
+
+http://rmarkdown.rstudio.com/authoring_basics.html
+
+## R Java solution
+
+http://stackoverflow.com/questions/7019912/using-the-rjava-package-on-win7-64-bit-with-r

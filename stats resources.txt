@@ -1,0 +1,6 @@
+### Stats resources
+
+http://stattrek.com/online-calculator/t-distribution.aspx - pvalue calculator
+
+http://stattrek.com/probability-distributions/discrete-continuous.aspx?Tutorial=Stat - discrete vs. continuous probability
+
