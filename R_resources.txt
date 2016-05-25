@@ -13,6 +13,8 @@ http://www.statmethods.net/ - link to Quick R
 
 https://cran.r-project.org/other-docs.html - CRAN intro to R
 
+http://www.r-bloggers.com/wilcoxon-signed-rank-test/- Wilcoxon Sum-Rank test example
+
 ## site used in unit 2 class exercise for RMarkdown references
 
 http://rmarkdown.rstudio.com/authoring_basics.html
