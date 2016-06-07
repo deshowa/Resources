@@ -365,3 +365,7 @@ To https://github.com/deshowa/testrepo.git
    f992639..38aad4b  master -> master
 
 Alex@DESKTOP-7KDF9D5 MINGW64 /c/SMU Data science/Doing data science course/Units/Unit 3/testrepo (master)
+
+## Removes SSL screen
+
+$ git -c http.sslVerify=false clone https://github.com/deshowa/project.git

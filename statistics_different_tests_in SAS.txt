@@ -1,0 +1,174 @@
+#### This is a running log of the types of tests used in SAS and their applications####
+
+
+5 general assumptions about data to run tests:
+	1.) normally distributed
+	2.) independent observations
+	3.) quantitative data
+	4.) data come from a randomly drawn sample
+	5.) the data are representative of the population
+	6.) technically for 2 sample tests - population standard deviations are equal
+
+## must load the data; several ways to to so
+	# first: manual input:
+	data brakes;
+	input standard new;  # note that test variables must be entered followed by $
+	datalines;
+	[data]
+	;
+
+	# second: read in local file
+	data incomes;
+	infile '\\Client\C$\SMU Data Science\Statistics 1\datasets\CSV\ex0525.csv' firstobs = 2 dlm = ',';
+	input subject education$ income2005;
+	run;
+	
+	# third: Use the file command to import data
+
+
+## first things we do are look at boxplots, qqplots, and histograms in SAS## (note that in SAS one of the tests puts line through QQplot)- note to come back to this
+
+	# sometimes, need to sort data first if have multiple samples/treatments
+	proc sort data = incomes;
+	key education  income2005 /ascending; # the key argument is what you are sorting by and allows for multi-level sort
+	run;
+
+
+	# histogram #
+	proc univariate data = heights;
+	by sport;
+	histogram height;
+	run;
+
+	# boxplot #
+	
+	proc boxplot data = height;
+	plot height*sport; # quantitative value always comes before the qualitative dimension in the boxplot
+	run;
+
+	# QQplots of the data
+	proc univariate data = incomes;
+	class education;
+	var income2005;
+	qqplot;
+
+	# 5 number summary in SAS
+	proc means data = height n mean min q1 median q3 max std order = data  # only order if not sorted yet
+	run;
+
+	# 5 number summary more in depth  # notice that we added the by argument here
+	proc means data = incomes n mean min q1 median q3 max std order = data ;
+	by education;
+	var income2005;
+	run;
+
+## After looking at the data, we are ready to run our tests, of which we have a menu:
+
+
+## Welch's t-test: for testing a hypothesis of the mean
+
+	# one sample t-test with hypothesized mean (assumed normal and all assumptions met)
+
+	proc ttest data = IQ sides = (U,L,2) Ho = 117;
+	var score # telling the test what we are testing for the hypothesis
+	run;
+
+	# 2 sample t-test for unequal means
+	
+	proc ttest data = brakes sides = u  # could be any, but from brake lights example
+	var times; # quatitative variable
+	class light; # treatment group
+	run;
+	
+	# 2 sample paired t-test # remember that data must be entered a certain way for this to work (can get SAS to calculate diffs)
+	
+	proc ttest data = brakes ;
+	paired standard*new; # can also just create teh column for the diffs
+	run;
+
+## In some cases, our data may not meet the assumptions and we may have to do a transformation
+	### signs for transformation necessary:
+		1.) heavy tails in the dataset
+		2.) ratio of smallest to largest measurement is >10
+		3.) graphical displays of skewness
+		4.) The group with the > mean has the > spread
+		5.) non-constant variance (heteroskedsticity)
+		6.) ratio of standard deviations (s1/s2) very different from 1 and smaller sample comes from pupulation with the greater standard deviation
+	# Remember, at the end of a log transformed test, you must change everything back to your original units
+	# Also, remember that you are no longer testing the mean, but rather the ratio of medians ln(Ma/Mb); for CI, want to see if range encompasses 1 (same as containing zero in range)
+	# to transform back (depending on log base used) e^value
+	## DATA MUST BE POSITIVE FOR LOG TRANSFORMATION!!!!!!!!!!
+	# other transformations do exist : square_root, inverse, reciprocal
+
+	# t-test with log transform reversal built in
+	
+	proc ttest data = heights dist = lognormal;
+	var heights;
+	run;
+
+## In other cases, data may not allow for parametric tests:
+	1.) data too skewed or very bad outliers
+	2.) not enough observations
+	3.) violation of variance assumptions (equality and evenly distributed residuals)
+	4.) unknown values or ties exist in the dataset - censored, only know data is above or below a certain value
+
+## Non-parametric tests
+	
+	# Wilcoxon Rank Sum test
+		For 2 sample situation
+		Good for outliers that cannot be fixed wit hlog transform
+		If know data points are greatest or least but dont have accurate measures
+	
+	proc npar1way data = scores wilcoxon;
+	var math;
+	class schtyp;
+	exact wilcoxon / mc; * for exact p-values and mc tels sas to estimate permuatations because of large dataset; monte carlo
+	run;
+	
+	# Multiple samples (>2) Kruskal Wallace test for Multiple Independent samples
+	
+	proc npar1way data = scores wilcoxon;
+	var math;
+	class ses; # this variable now just has 3 groups
+	exact wilcoxon / mc; * for exact p-values and mc tels sas to estimate permuatations because of large dataset;
+	run;
+	
+	# Wilcoxon Signed Rank test: for non-parametric paired data
+		## If you want ot test whether median is different from some value, you would subtract that value from all of your observations, then perform the test.
+	
+	Can create diff column on read in with:
+	data plants;
+	input cross shelf;
+	diff = cross-shelf;
+	datalines;
+	[data]
+	;
+	
+	proc univariate data = plants;
+	var diff;
+	histogram;
+	boxplot;
+	run;
+	
+	# Sign text: remember just sums positive values: would use for situation where just know direction of the data; not a powerful test; if data is not quantified; LAST RESORT!!
+	
+	proc univariate data = plants;
+	var diff;
+	histogram;
+	boxplot;
+	run;
+	
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+

@@ -278,3 +278,41 @@ plot x = effect min = 3 max = 6;
 run;
 * gives curve for each possible combination of the stddevs
 
+* Example from Unit 4 of running alternative tools to T-test;
+data scores;
+infile '\\Client\C$\SMU Data Science\Resources\files for code\hsb2.csv' firstobs = 2 dlm= ',';
+input id female race ses schtyp rog read write math science socst;
+run;
+
+proc print data = scores;
+run;
+
+ODS rtf; *output to word file if you want t rich text format;
+proc univariate data = scores;
+var write math;  * variables you are interested in testing 1 = public 2 = private;
+class schtyp; * schtype is school type ;
+histogram write math;
+qqplot write math;
+run;
+
+* could probably use t-test for these, but for example going ot use non-parametric;
+proc npar1way data = scores wilcoxon;
+var math;
+class schtyp;
+exact wilcoxon / mc; * for exact p-values and mc tels sas to estimate permuatations because of large dataset;
+run;
+
+* Now let's set for multiple samples: doing for socioeconomic: 1= low, 2= mid, 3 = hi;
+proc npar1way data = scores wilcoxon;
+var math;
+class ses;
+exact wilcoxon / mc; * for exact p-values and mc tels sas to estimate permuatations because of large dataset;
+run;
+* definitely reject Ho;
+
+* For LOG TRANSFORMATIONS CAN ADD CODE TO BACK TRANSFOR MTHE DATA
+
+proc ttest data = heights dist = lognormal;
+
+run;
+

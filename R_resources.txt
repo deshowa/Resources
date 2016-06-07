@@ -22,3 +22,18 @@ http://rmarkdown.rstudio.com/authoring_basics.html
 ## R Java solution
 
 http://stackoverflow.com/questions/7019912/using-the-rjava-package-on-win7-64-bit-with-r
+
+http://www.r-bloggers.com/analysis-of-variance-anova-for-multiple-comparisons/ - ANOVA for multipel comparisons in R
+
+r-pkgs.had.w.nz/git.html - site she mentioned in class
+
+http://www.statmethods.net/advstats/bootstrapping.html- bootstrapping site
+
+http://www.quantmod.com/examples/intro/- quantmode package
+
+https://www.datacamp.com/community/tutorials/15-easy-solutions-data-frame-problems-r - manipulating data frames in R (removing rows, columns, etc.)
+
+http://www.statmethods.net/stats/descriptives.html - descriptive statistics in R
+
+https://github.com/hadley/tidy-data/tree/master/data - tidy data reproducable code article.  Not perfect, but easy to follow.
+

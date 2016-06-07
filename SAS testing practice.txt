@@ -1,0 +1,259 @@
+*Practicing SAS 6/5/16;
+* first I will test skills with a 2 sample dataset, then move on to 3 sample (anova and non-paramtric tests; 
+
+data heights;
+input height sport$;
+datalines;
+6.079999924	Basketball
+6.579999924	Basketball
+6.25	Basketball
+6.579999924	Basketball
+6.25	Basketball
+5.920000076	Basketball
+7	Basketball
+6.409999847	Basketball
+6.75	Basketball
+6.25	Basketball
+6	Basketball
+6.920000076	Basketball
+6.829999924	Basketball
+6.579999924	Basketball
+6.409999847	Basketball
+6.670000076	Basketball
+6.670000076	Basketball
+5.75	Basketball
+6.25	Basketball
+6.25	Basketball
+6.5	Basketball
+6	Basketball
+6.920000076	Basketball
+6.25	Basketball
+6.420000076	Basketball
+6.579999924	Basketball
+6.579999924	Basketball
+6.079999924	Basketball
+6.75	Basketball
+6.5	Basketball
+6.829999924	Basketball
+6.079999924	Basketball
+6.920000076	Basketball
+6	Basketball
+6.329999924	Basketball
+6.5	Basketball
+6.579999924	Basketball
+6.829999924	Basketball
+6.5	Basketball
+6.579999924	Basketball
+6.329999924	Football
+6.5	Football
+6.5	Football
+6.25	Football
+6.5	Football
+6.329999924	Football
+6.25	Football
+6.170000076	Football
+6.420000076	Football
+6.329999924	Football
+6.420000076	Football
+6.579999924	Football
+6.079999924	Football
+6.579999924	Football
+6.5	Football
+6.420000076	Football
+6.25	Football
+6.670000076	Football
+5.909999847	Football
+6	Football
+5.829999924	Football
+6	Football
+5.829999924	Football
+5.079999924	Football
+6.75	Football
+5.829999924	Football
+6.170000076	Football
+5.75	Football
+6	Football
+5.75	Football
+6.5	Football
+5.829999924	Football
+5.909999847	Football
+5.670000076	Football
+6	Football
+6.079999924	Football
+6.170000076	Football
+6.579999924	Football
+6.5	Football
+6.25	Football
+6.329999924	Football
+5.25	Football
+6.670000076	Football
+6.5	Football
+5.829999924	Football
+; 
+* check out the dataload;
+proc print data = heights;
+run;
+* data looks pretty good, equal n, close means, and equal std devs;
+proc means data = heights n mean q1 median q3 min max std var ;
+by sport;
+run;
+* lets look at a histogram to see how the data are distributed;
+proc univariate data = heights;
+by sport;
+histogram height;
+qqplot height;
+run;
+* football distribution looks a little skewed, but qqplots look alright and data seems to be well behaved, so let's first run a t-test 
+
+* since only looking at football, let's create football dataset;
+
+data football_heights;
+set heights;
+put _all_;
+if sport = 'Football';
+run;
+
+* now I want to test if the heights of the football players are >6.4;
+
+proc ttest data = football_heights sides = u Ho = 6.4;
+var height;
+run;
+
+* in this case we fail to reject the null that the mean height of the football players is equal to 6.4 , said another way, the evidence strongly suggests that the mean height of football 
+players is not greater than 6.4 (remember that Ho really is <=)
+
+* now, I want to see if the heights of the football and basketball players are different than eachother,
+
+* first, let's run a 2 tailed test;
+
+* ho = xf-xb=0, ha = xf-xb<>0;
+
+proc ttest data = heights sides = 2;
+var height;
+class sport;
+run; 
+
+* pvalue = .0004
+
+* there is a .04% chance of observing a difference as large as the one observed by chance given than the Ho = true
+
+* statistical conclusion: The evidence strongly suggests that the mean heights of the football players is different from the mean heights of the basketball players (p=.0004)
+* ADDITIONALLY my confidence interval does not encompass 0 so this is nice confirmation;
+
+* ok, I really think that the mean height of the basketball players is higher than the football players, so I will test that;
+
+proc ttest data = heights sides = 2  order = data;
+var height;
+class sport;
+run;
+
+* what about if I broaden my level of confidence;
+
+proc ttest data = heights sides = 2 alpha =.01 order = data;
+var height;
+class sport;
+run;
+* confidence interval still looks good;
+
+* my upper tail p-value is .0002;
+* there is a .02% chance of observing a difference as or more extreme than the one observed by chance given that the Null is true;
+* the evidence strongly suggests that the height of basketball players is greater than the height of football players;
+
+* let's just try a log transformation, assume that the data violates our assumptions;
+
+proc ttest data = heights sides = 2 dist = lognormal;
+var height;
+class sport;
+run;
+
+
+
+
+* ok, now I want to get into 3 samples or more and non-parametric data
+* I need a new dataset.  We will use the test scores dataset;
+
+data scores;
+
+infile '\\Client\C$\SMU Data Science\Resources\files for code\hsb2.csv' firstobs = 2 dlm = ',';
+input id female race ses schtyp prog read write math science socst;
+if female = 1 then gender= 'female';
+if female = 0 then gender= 'male';
+run;
+
+proc print data  = scores;
+run;
+* have to sort first;
+proc sort data = scores;
+key gender math /ascending;
+run;
+
+
+* I am going to look at the differences in scores of males and females in math;
+proc means data = scores n mean q1 median q3 min max std var ;
+by gender;
+var math;
+run;
+* means and std dev look about the same actually;
+* lets look at a histogram to see how the data are distributed;
+proc univariate data = scores;
+by gender;
+histogram math;
+qqplot math;
+run;
+
+* pretending that hte data do not look very normally dist, will run wilcoxon rank sum test;
+
+proc npar1way data = scores wilcoxon;
+var math;
+class gender;
+exact wilcoxon / mc;
+run;
+* get a very high 2-sided p-value so we would fail to reject the null (.74)
+* there is a 74% chance of seeing a difference as extreme or more as the one observed given that the null is true;
+* The evidence suggests that the scores between males and females in  math are not different
+
+* now I am going to test whether scores are different between socioeconomic status;
+
+* first i need to resort;
+proc sort data = scores;
+key ses math /ascending;
+run;
+
+proc means data = scores n mean q1 median q3 min max std var ;
+var math;
+class ses;
+run;
+
+proc univariate data = scores;
+by ses;
+histogram math;
+qqplot math;
+run;
+
+proc anova data = scores;
+class ses;
+model math = ses; 
+run;
+
+* we can see in the ANOVA model that the probability of observing at least one 
+* It looks like at least one of hte means is different, reject Ho;
+
+* I am going to run kruskall wallace just for practice, although assumptions met and data looks parametric;
+proc npar1way data = scores wilcoxon;
+var math;
+class ses;
+exact wilcoxon / mc;
+run;
+
+* this is enought for now, when we come back, we will run other non-parametric tests and try out linear combinations to test for other hypotheses;
+
+
+
+
+
+
+
+
+
+
+

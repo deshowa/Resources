@@ -1,6 +1,35 @@
 ### Stats resources
 
+http://www.dummies.com/how-to/content/what-a-pvalue-tells-you-about-statistical-data.html - quikc p-value explanation
+
 http://stattrek.com/online-calculator/t-distribution.aspx - pvalue calculator
 
 http://stattrek.com/probability-distributions/discrete-continuous.aspx?Tutorial=Stat - discrete vs. continuous probability
 
+http://www.stat.purdue.edu/~tqin/system101/method/method_wilcoxon_signed_rank_sas.htm - wilcoxon signed rank in SAS
+
+https://en.wikipedia.org/wiki/Contrast_(statistics) - contrasts explained
+
+http://www.ats.ucla.edu/stat/sas/faq/contrast.htm - contrasts in SAS
+
+https://support.sas.com/documentation/cdl/en/statug/63347/HTML/default/viewer.htm#statug_glm_sect056.htm - levene's test for equal variances
+
+http://support.sas.com/documentation/cdl/en/procstat/63104/HTML/default/viewer.htm#procstat_univariate_sect019.htm -qqplot
+
+https://support.sas.com/documentation/cdl/en/statug/63033/HTML/default/viewer.htm#statug_npar1way_sect007.htm - exact statement
+
+http://www.basic.northwestern.edu/statguidefiles/oneway_anova_ass_viol.html - ANOVA explained - question 2 on quiz 5
+
+http://www.itl.nist.gov/div898/handbook/eda/section3/histogr6.htm - distributions explained
+
+Repmis help file: https://cran.r-project.org/web/packages/repmis/repmis.pdf
+
+There is an R package called xlsx for importing Excel files - really slow.
+
+Getting documents from Google Drive: http://www.r-bloggers.com/download-all-documents-from-google-drive-with-r/
+
+Documents from Google sheets: https://cran.r-project.org/web/packages/googlesheets/googlesheets.pdf
+
+Curl introduction for Google Drive access: also found this one https://developers.google.com/gdata/articles/using_cURL#introduction
+
+Link from which I adapted the PolarBear exercise: http://readwrite.com/2013/10/02/github-for-beginners-part-2/
