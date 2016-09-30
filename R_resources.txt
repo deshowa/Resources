@@ -37,3 +37,18 @@ http://www.statmethods.net/stats/descriptives.html - descriptive statistics in R
 
 https://github.com/hadley/tidy-data/tree/master/data - tidy data reproducable code article.  Not perfect, but easy to follow.
 
+https://cran.r-project.org/web/packages/jsonlite/vignettes/json-apis.html - API data
+
+https://github.com/ropensci/opendata - public APIs
+
+https://stat.ethz.ch/R-manual/R-devel/library/base/html/merge.html - merge function
+
+http://developer.nytimes.com/docs - New york times API
+
+http://developer.yahoo.com/yql/ - Yahoo SQL for APIs
+
+http://www.r-bloggers.com/example-2014-6-comparing-medians-and-the-wilcoxon-rank-sum-test/ - rank sum test
+
+http://stackoverflow.com/questions/7743898/how-to-use-cast-on-a-data-frame - cast in R
+
+http://r.789695.n4.nabble.com/Row-to-Column-help-td904293.html - reshape

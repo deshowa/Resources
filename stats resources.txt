@@ -1,6 +1,6 @@
 ### Stats resources
 
-http://www.dummies.com/how-to/content/what-a-pvalue-tells-you-about-statistical-data.html - quikc p-value explanation
+http://www.dummies.com/how-to/content/what-a-pvalue-tells-you-about-statistical-data.html - quick p-value explanation
 
 http://stattrek.com/online-calculator/t-distribution.aspx - pvalue calculator
 
@@ -33,3 +33,80 @@ Documents from Google sheets: https://cran.r-project.org/web/packages/googleshee
 Curl introduction for Google Drive access: also found this one https://developers.google.com/gdata/articles/using_cURL#introduction
 
 Link from which I adapted the PolarBear exercise: http://readwrite.com/2013/10/02/github-for-beginners-part-2/
+
+http://www.ats.ucla.edu/stat/sas/faq/contrast.htm - doing contrasts in SAS
+
+http://www.public.iastate.edu/~dnett/S401/wanova.pdf - anova repeat
+
+
+http://yatani.jp/teaching/doku.php?id=hcistats:posthoc - post hoc tests and assumptions
+
+
+http://www.clayford.net/statistics/tag/permutation-tests/ - permutation tests explained
+
+http://www.power-analysis.com/effect_size.htm - Power and effect size
+
+http://www.ats.ucla.edu/stat/mult_pkg/faq/general/effect_size_power/effect_size_power.htm - power and effect size
+
+http://www.itl.nist.gov/div898/handbook/eda/section3/eda366.htm - gallery of common distributions
+
+http://www.abs.gov.au/websitedbs/D3310114.nsf/home/Time+Series+Analysis:+The+Basics  - Time series basics
+
+https://www.census.gov/srd/www/x13as/ - x-13 arima
+
+https://communities.sas.com/t5/Base-SAS-Programming/Importing-sas7bdat-file/td-p/167889 - stat library import
+
+
+#### These 3 links talk about the importance of EDA#######
+http://www.cc.com/video-clips/kbgnf0/the-colbert-report-austerity-s-spreadsheet-error---thomas-herndon
+http://www.peri.umass.edu/fileadmin/pdf/working_papers/working_papers_301-350/WP322.pdf
+http://www.nytimes.com/2011/07/08/health/research/08genes.html?_r=1
+
+
+https://www.otexts.org/fpp/6/6 - forecasting with STL and seasonally adjusted data
+
+http://www.r-tutor.com/elementary-statistics/numerical-measures/correlation-coefficient - corr coeff in R
+
+http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm - explanation if ANOVA variance in overall F-Test for regression
+
+
+https://en.wikipedia.org/wiki/Akaike_information_criterion - AIC
+
+https://en.wikipedia.org/wiki/Bayesian_information_criterion - BIC
+
+https://en.wikipedia.org/wiki/Mallows%27s_Cp - cp statistic
+
+http://support.minitab.com/en-us/minitab/17/topic-library/modeling-statistics/regression-and-correlation/goodness-of-fit-statistics/what-is-mallows-cp/ - cp statistic
+
+https://www.statstodo.com/FTest_Exp.php - F- distribution
+
+http://arxiv.org/abs/1202.1964 - using regression for adjustment
+
+http://www.ats.ucla.edu/stat/sas/dae/powerreg.htm - power for multiple regression
+
+http://www.stat.ubc.ca/~rollin/teach/643w04/lec/node41.html - forward selection
+
+https://en.wikipedia.org/wiki/Studentized_residual - studentized residuals ( standardized version of residuals)
+
+http://www.basic.northwestern.edu/statguidefiles/linreg_alts.html - transformation decisions
+
+http://www.stat.purdue.edu/~tqin/system101/method/method_two_way_ANOVA_sas.htm - 2 way anova with interactions
+
+https://people.richland.edu/james/ictcm/2004/twoway.html - 2 way ANOVA
+
+http://www.ats.ucla.edu/stat/sas/faq/sas_interpret_log.htm - log interpretation
+
+http://www.miracosta.edu/Home/rmorrissette/Chapter14.htm - sum of squares for 2 way ANOVA
+
+http://www.stefvanbuuren.nl/mi/MI.html - multiple imputation
+
+
+
+
+
+
+
+
+
+
+

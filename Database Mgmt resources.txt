@@ -1,0 +1,7 @@
+DATABASE MGMT SYSTEMS CLASS RESOURCES
+
+https://en.wikipedia.org/wiki/Weak_entity - Weak entities
+
+https://www.tutorialspoint.com/dbms/database_normalization.htm - functional dependencies
+
+https://en.wikipedia.org/wiki/Armstrong%27s_axioms - Armstrong's Axioms - very impt for understanding DB normalization
