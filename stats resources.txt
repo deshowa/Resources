@@ -67,7 +67,7 @@ https://www.otexts.org/fpp/6/6 - forecasting with STL and seasonally adjusted da
 
 http://www.r-tutor.com/elementary-statistics/numerical-measures/correlation-coefficient - corr coeff in R
 
-http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm - explanation if ANOVA variance in overall F-Test for regression
+http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm - explanation of ANOVA variance in overall F-Test for regression
 
 
 https://en.wikipedia.org/wiki/Akaike_information_criterion - AIC
@@ -98,14 +98,40 @@ http://www.ats.ucla.edu/stat/sas/faq/sas_interpret_log.htm - log interpretation
 
 http://www.miracosta.edu/Home/rmorrissette/Chapter14.htm - sum of squares for 2 way ANOVA
 
+http://www.ats.ucla.edu/stat/sas/library/repeated_ut.htm - repeated measures ANOVA
+
 http://www.stefvanbuuren.nl/mi/MI.html - multiple imputation
 
+https://en.wikipedia.org/wiki/Normality_test - normality - QQPlot, Histograms, Kurtosis, Skewness
+
+https://en.wikipedia.org/wiki/Discriminant_function_analysis - linear discriminant analysis
+
+http://stats.stackexchange.com/questions/28622/how-do-i-test-whether-i-can-properly-apply-lda - LDA assumptions
+
+http://stats.stackexchange.com/questions/175477/how-is-the-tied-covariance-matrix-enforced-in-linear-discriminant-analysis - tied coveriance matric in LDA
 
 
+http://www.ats.ucla.edu/stat/sas/library/repeated_ut.htm - repeated measures ANOVA walkthrough
+
+http://www.introspective-mode.org/data-assumption-homogeneity-of-variance-covariance/ - homogeny of variance-covariance matrix assumption in MANOVA
 
 
+http://sites.stat.psu.edu/~ajw13/stat505/fa06/09_Hotel/02_Hotel_example.html - univariate versus multivariate assumptions
 
+http://stats.stackexchange.com/questions/2691/making-sense-of-principal-component-analysis-eigenvectors-eigenvalues - PCA for regression
 
+http://stats.stackexchange.com/questions/4093/interpreting-pca-scores - interpretting PCA scores
+
+https://rpubs.com/ryankelly/LDA-QDA - LDA in Rpubs
+
+https://en.wikipedia.org/wiki/Continuity_correction - continuity corrections
+
+https://en.wikipedia.org/wiki/Binomial_distribution - binomial distribution
+
+****** HYPOTHESIS TESTS IN SAS WITH EXAMPLES ********
+https://onlinecourses.science.psu.edu/stat505/node/175
+
+https://onlinecourses.science.psu.edu/stat505/node/53 - PCA
 
 
 
