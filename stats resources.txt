@@ -115,6 +115,7 @@ http://www.ats.ucla.edu/stat/sas/library/repeated_ut.htm - repeated measures ANO
 
 http://www.introspective-mode.org/data-assumption-homogeneity-of-variance-covariance/ - homogeny of variance-covariance matrix assumption in MANOVA
 
+http://stats.stackexchange.com/questions/71489/three-versions-of-discriminant-analysis-differences-and-how-to-use-them - LDA vs. QDA
 
 http://sites.stat.psu.edu/~ajw13/stat505/fa06/09_Hotel/02_Hotel_example.html - univariate versus multivariate assumptions
 
@@ -132,6 +133,24 @@ https://en.wikipedia.org/wiki/Binomial_distribution - binomial distribution
 https://onlinecourses.science.psu.edu/stat505/node/175
 
 https://onlinecourses.science.psu.edu/stat505/node/53 - PCA
+
+http://www.statisticssolutions.com/assumptions-of-multiple-linear-regression/ - regression assumptions
+
+https://www.khanacademy.org/math/statistics-probability/inference-categorical-data-chi-square-tests/chi-square-goodness-of-fit-tests/v/pearson-s-chi-square-test-goodness-of-fit - chi square test
+
+http://www.itl.nist.gov/div898/software/dataplot/refman1/auxillar/mantel.htm - Mantel Haenszel test
+
+https://en.wikipedia.org/wiki/Deviance_(statistics) - Deviance for max liklihood
+
+https://en.wikipedia.org/wiki/Hosmer%E2%80%93Lemeshow_test - Hosmer Lemeshow test
+
+https://en.wikipedia.org/wiki/Logistic_regression - logistic regression
+
+https://www.analyticsvidhya.com/blog/2016/11/an-introduction-to-clustering-and-different-methods-of-clustering/ - clustering article
+
+
+
+
 
 
 

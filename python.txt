@@ -3,3 +3,7 @@ python help
 http://stackoverflow.com/questions/4621255/how-do-i-run-a-python-program-in-the-command-prompt-in-windows-7 - add to folder to look for
 
 http://www.randalolson.com/2012/08/06/statistical-analysis-made-easy-in-python/ - anova in python
+
+https://youtu.be/rFxXDO8-keg - Xpath in Python
+
+https://dzone.com/articles/better-explaining-cap-theorem - CAP theorem
