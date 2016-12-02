@@ -149,7 +149,9 @@ https://en.wikipedia.org/wiki/Logistic_regression - logistic regression
 https://www.analyticsvidhya.com/blog/2016/11/an-introduction-to-clustering-and-different-methods-of-clustering/ - clustering article
 
 
+http://www.ats.ucla.edu/stat/r/dae/logit.htm -logistic regression
 
+http://www.win-vector.com/blog/2016/05/pcr_part1_xonly/ - PCA
 
 
 

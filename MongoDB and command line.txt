@@ -1,0 +1,184 @@
+### Setting up mongoDB
+## to access mongo db, we must use the exe file as well as the program start in 2 different windows of the command line (apple and windows the same)
+
+# in command prompt 1 type
+
+mongod.exe
+
+# in command prompt 2 type 
+
+mongo.exe
+
+## now here is the code
+
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Users\Alex> c:\<dir
+The system cannot find the file specified.
+
+C:\Users\Alex> cd\
+
+C:\>md data
+
+C:\>md data\db
+
+C:\> cd "C:\Program Files\MongoDB"
+
+C:\Program Files\MongoDB>dir
+ Volume in drive C is OS
+ Volume Serial Number is FA5D-081A
+
+ Directory of C:\Program Files\MongoDB
+
+11/22/2016  04:52 PM    <DIR>          .
+11/22/2016  04:52 PM    <DIR>          ..
+11/22/2016  04:52 PM    <DIR>          Server
+               0 File(s)              0 bytes
+               3 Dir(s)  422,433,841,152 bytes free
+
+C:\Program Files\MongoDB> cd server
+
+C:\Program Files\MongoDB\Server> dir
+ Volume in drive C is OS
+ Volume Serial Number is FA5D-081A
+
+ Directory of C:\Program Files\MongoDB\Server
+
+11/22/2016  04:52 PM    <DIR>          .
+11/22/2016  04:52 PM    <DIR>          ..
+11/22/2016  04:52 PM    <DIR>          3.2
+               0 File(s)              0 bytes
+               3 Dir(s)  422,433,841,152 bytes free
+
+C:\Program Files\MongoDB\Server> cd 3.2
+
+C:\Program Files\MongoDB\Server\3.2> dir
+ Volume in drive C is OS
+ Volume Serial Number is FA5D-081A
+
+ Directory of C:\Program Files\MongoDB\Server\3.2
+
+11/22/2016  04:52 PM    <DIR>          .
+11/22/2016  04:52 PM    <DIR>          ..
+11/22/2016  04:52 PM    <DIR>          bin
+11/18/2016  05:44 PM            35,181 GNU-AGPL-3.0
+11/18/2016  05:44 PM            17,099 MPL-2
+11/18/2016  05:44 PM             1,359 README
+11/18/2016  05:44 PM            36,689 THIRD-PARTY-NOTICES
+               4 File(s)         90,328 bytes
+               3 Dir(s)  422,433,390,592 bytes free
+
+C:\Program Files\MongoDB\Server\3.2> cd bin
+
+C:\Program Files\MongoDB\Server\3.2\bin> dir
+ Volume in drive C is OS
+ Volume Serial Number is FA5D-081A
+
+ Directory of C:\Program Files\MongoDB\Server\3.2\bin
+
+11/22/2016  04:52 PM    <DIR>          .
+11/22/2016  04:52 PM    <DIR>          ..
+11/18/2016  05:45 PM         7,145,663 bsondump.exe
+09/02/2016  09:43 PM         1,991,680 libeay32.dll
+11/18/2016  05:52 PM         9,494,016 mongo.exe
+11/18/2016  05:56 PM        19,520,512 mongod.exe
+11/18/2016  05:56 PM       161,075,200 mongod.pdb
+11/18/2016  05:48 PM         9,228,030 mongodump.exe
+11/18/2016  05:47 PM         7,393,229 mongoexport.exe
+11/18/2016  05:46 PM         7,318,208 mongofiles.exe
+11/18/2016  05:47 PM         7,432,777 mongoimport.exe
+11/18/2016  05:48 PM         7,154,618 mongooplog.exe
+11/18/2016  05:57 PM        16,767,488 mongoperf.exe
+11/18/2016  05:47 PM        10,548,404 mongorestore.exe
+11/18/2016  05:56 PM         7,959,040 mongos.exe
+11/18/2016  05:56 PM        85,716,992 mongos.pdb
+11/18/2016  05:46 PM         7,401,410 mongostat.exe
+11/18/2016  05:48 PM         7,287,874 mongotop.exe
+09/02/2016  09:43 PM           321,536 ssleay32.dll
+              17 File(s)    373,756,677 bytes
+               2 Dir(s)  422,433,390,592 bytes free
+
+C:\Program Files\MongoDB\Server\3.2\bin> mongod.exe
+2016-11-22T17:37:57.566-0600 I CONTROL  [initandlisten] MongoDB starting : pid=4368 port=27017 dbpath=C:\data\db\ 64-bit host=DESKTOP-7KDF9D5
+2016-11-22T17:37:57.571-0600 I CONTROL  [initandlisten] targetMinOS: Windows 7/Windows Server 2008 R2
+2016-11-22T17:37:57.582-0600 I CONTROL  [initandlisten] db version v3.2.11
+2016-11-22T17:37:57.586-0600 I CONTROL  [initandlisten] git version: 009580ad490190ba33d1c6253ebd8d91808923e4
+2016-11-22T17:37:57.589-0600 I CONTROL  [initandlisten] OpenSSL version: OpenSSL 1.0.1t-fips  3 May 2016
+2016-11-22T17:37:57.604-0600 I CONTROL  [initandlisten] allocator: tcmalloc
+2016-11-22T17:37:57.614-0600 I CONTROL  [initandlisten] modules: none
+2016-11-22T17:37:57.625-0600 I CONTROL  [initandlisten] build environment:
+2016-11-22T17:37:57.638-0600 I CONTROL  [initandlisten]     distmod: 2008plus-ssl
+2016-11-22T17:37:57.651-0600 I CONTROL  [initandlisten]     distarch: x86_64
+2016-11-22T17:37:57.654-0600 I CONTROL  [initandlisten]     target_arch: x86_64
+2016-11-22T17:37:57.659-0600 I CONTROL  [initandlisten] options: {}
+2016-11-22T17:37:57.688-0600 I STORAGE  [initandlisten] wiredtiger_open config: create,cache_size=1G,session_max=20000,eviction=(threads_max=4),config_base=false,statistics=(fast),log=(enabled=true,archive=true,path=journal,compressor=snappy),file_manager=(close_idle_time=100000),checkpoint=(wait=60,log_size=2GB),statistics_log=(wait=0),
+2016-11-22T17:38:00.068-0600 I FTDC     [initandlisten] Initializing full-time diagnostic data capture with directory 'C:/data/db/diagnostic.data'
+2016-11-22T17:38:00.068-0600 I NETWORK  [HostnameCanonicalizationWorker] Starting hostname canonicalization worker
+2016-11-22T17:38:00.636-0600 I NETWORK  [initandlisten] waiting for connections on port 27017
+2016-11-22T17:40:01.586-0600 I NETWORK  [initandlisten] connection accepted from 127.0.0.1:55914 #1 (1 connection now open)
+2016-11-22T18:09:05.579-0600 I COMMAND  [conn1] command derek_banas_test_1.derek_banas_test_1 command: insert { insert: "derek_banas_test_1", documents: [ { _id: ObjectId('5834de213dcad8c6b2b874c9'), name: "Derek Banas", position: "programmer", email: "db@aol.com", hiredate: new Date(1479859712919) } ], ordered: true } ninserted:1 keyUpdates:0 writeConflicts:0 numYields:0 reslen:25 locks:{ Global: { acquireCount: { r: 2, w: 2 } }, Database: { acquireCount: { w: 1, W: 1 } }, Collection: { acquireCount: { W: 1 } } } protocol:op_command 343ms
+
+
+##############################################################################################
+######################## CODE FROM MONGO.EXE #################################################
+##############################################################################################
+
+Microsoft Windows [Version 10.0.14393]
+(c) 2016 Microsoft Corporation. All rights reserved.
+
+C:\Users\Alex> cd
+C:\Users\Alex
+
+C:\Users\Alex> cd "C:\Program Files\MongoDB\Server\3.0\bin
+The system cannot find the path specified.
+
+C:\Users\Alex> cd "C:\Program Files\MongoDB\Server\3.0\bin"
+The system cannot find the path specified.
+
+C:\Users\Alex> cd "C:\Program Files\MongoDB\Server\3.2\bin"
+
+C:\Program Files\MongoDB\Server\3.2\bin> mongo.exe
+MongoDB shell version: 3.2.11
+connecting to: test
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+        http://docs.mongodb.org/
+Questions? Try the support group
+        http://groups.google.com/group/mongodb-user
+> function times2 (num) {
+... return num * 2;
+... }
+> times2(4)
+8
+> show dbs
+local  0.000GB
+> db
+test
+> use derek_banas_test_1
+switched to db derek_banas_test_1
+> db
+derek_banas_test_1
+> derekbanas = {"name": "Derek Banas",
+... "position" : "programmer";
+... }
+2016-11-22T18:07:43.320-0600 E QUERY    [thread1] SyntaxError: missing } after property list @(shell):2:25
+
+> derekbanas = {"name": "Derek Banas", "position" : "programmer", "email" : "db@aol.com", "hiredate" : new Date()}
+{
+        "name" : "Derek Banas",
+        "position" : "programmer",
+        "email" : "db@aol.com",
+        "hiredate" : ISODate("2016-11-23T00:08:32.919Z")
+}
+> db.derek_banas_test_1.insert (derekbanas)
+WriteResult({ "nInserted" : 1 })
+> db.derek_banas_test_1.find().pretty()
+{
+        "_id" : ObjectId("5834de213dcad8c6b2b874c9"),
+        "name" : "Derek Banas",
+        "position" : "programmer",
+        "email" : "db@aol.com",
+        "hiredate" : ISODate("2016-11-23T00:08:32.919Z")
+}
